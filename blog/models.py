@@ -99,6 +99,12 @@ class BlogDetailPage(Page):
     ]
     subpage_types = []
 
+    # def get_admin_display_title(self):
+    #     return format_html(
+    #         '<a href="{}">{}</a>',
+    #         reverse("wagtailadmin_pages:edit", args=[self.id]),
+    #         self.title,
+    #     )
     # def get_template(self, request, *args, **kwargs):
     #     tester = self.permissions_for_user(request.user)
     #     # if self.permissions_for_user(request.user):
@@ -123,12 +129,14 @@ class BlogDetailPage(Page):
             context[self.context_object_name] = self
 
         context["accept"] = kwargs["accept"] if "accept" in kwargs else True
+        context["is_private"] = self.is_private()
         return context
 
     def serve(self, request, *args, **kwargs):
         if "accept" not in kwargs:
             kwargs["accept"] = True
         request.is_preview = False
+        kwargs["is_private"] = self.is_private()
 
         return TemplateResponse(
             request,
@@ -138,3 +146,5 @@ class BlogDetailPage(Page):
 
     def get_password_restriction(self):
         return self.get_view_restrictions().filter(restriction_type="password").first()
+    def is_private(self):
+        return self.view_restrictions.exists()
