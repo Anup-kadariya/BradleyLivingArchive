@@ -45,15 +45,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                <li class="nav-item"><a class="nav-link" href="/#maps">Maps</a></li>
-
                 <li class="nav-item"><a class="nav-link" href="/#context">Context</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#maps">Maps</a></li>
                 <li class="nav-item"><a class="nav-link" href="/#projects">Projects</a></li>
-                <li class="nav-item"><a class="nav-link" href="/introduction">Modules</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="/introduction">Modules</a></li> -->
                 <li class="nav-item"><a class="nav-link" href="/#team">Team</a></li>
                 <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
                 <li class="nav-item"><a class="nav-link"
-                                        href="https://archive.indigenousengineering.org.au/">Archive</a></li>
+                                        href="https://www.monash.edu/arts/monash-indigenous-studies/wunungu-awara">Archive</a></li>
 
                 <li class="nav-item">
                     {% if request.user.is_authenticated %}
@@ -76,10 +75,10 @@
 <!-- Masthead-->
 <header class="masthead">
     <a
-            href="https://indigenousengineering.org.au/painting-by-payi-cables-technology-and-engineering-april-2022/">
+            href="https://www.monash.edu/arts/monash-indigenous-studies/wunungu-awara">
         <div class="container">
-            <div class="masthead-subheading">A Living Archive</div>
-            <div class="masthead-heading text-uppercase">Indigenous Engineering for an Enduring Culture</p>
+            <div class="masthead-subheading">Bradly Living Archive</div>
+            <div class="masthead-heading text-uppercase">Wunungu Awara: Animating Indigenous Knowledges</p>
             </div>
 
         </div>
@@ -91,9 +90,8 @@
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Context for material </h2>
             <h3 class="section-subheading text-muted">
-                The material collected on this site was initiated as a book Indigenous Engineering for an Enduring
-                Culture </h3>
-            <p>
+                The material collected on this site was initiated as a video journal made by indigineous studies of monash university </h3>
+            <!-- <p>
                 The book <em class="hl-text">Indigenous Engineering for an Enduring Culture</em>
                 edited by Cat Kutay, Elyssebeth Leigh, Juliana Kaya Prpic and Lyndon Ormond-Parker </style> was
                 published in 2022 by Cambridge Scholars Publishing and is available as an eBook, hardback and
@@ -102,12 +100,12 @@
                     href="https://play.google.com/store/books/details/Cat_Kutay_Indigenous_Engineering_for_an_Enduring_C?id=_K2REAAAQBAJ&gl=GB"
                     class="hl-link">on Google Play</a> for the ebook. The stories here are an introduction to the
                 book and its authors.
-            </p>
+            </p> -->
             <p>
-                More stories will be added by those who register and can contribute further information about their
-                own projects. We will put up instructions how to do this privately, within community, then how to
-                publish as collection you have gathered on your community, such as information that may encourage
-                tourism or language learning relating to Care for Country.
+                The loss of a language is a lot more than just the loss of words. 
+                It is also the loss of identity, spirituality, cultural knowledge and values.
+                Using the latest 3D animation technology Indigenous stories and languages come to life – 
+                records the past, preserves the present, and protects Indigenous languages and knowledge into the future.
         </div>
     </div>
 </section>
@@ -274,7 +272,7 @@
                     </div>
                 {% endfor %}
             </div>
-            <div class="more-link"><a href="/blog/">More</a></div>
+            <div class="more-link"><a href="/blog/">See More</a></div>
         </div>
     </section>
 
@@ -289,37 +287,26 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="team-member mx-auto">
-                        <img class="mx-auto rounded-circle" src="{% static 'assets/img/team/3.jpg' %}" alt="..."/>
-                        <h4>Zexin Huang</h4>
+                        <img class="mx-auto rounded-circle" src="{% static 'assets/img/team/1.jpeg' %}" alt="picture of the developer"/>
+                        <h4>Anup Kadariya</h4>
                         <p class="text-muted">Lead Developer</p>
-                        <!--
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                        
+                            <a class="btn btn-dark btn-social mx-2" href="https://github.com/Anup-kadariya/"><i class="fab fa-github"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
-                            -->
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/anup-kadariya/"><i class="fab fa-linkedin-in"></i></a>
+                           
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="team-member mx-auto">
-                        <img class="mx-auto rounded-circle" src="{% static 'assets/img/team/1.jpg' %}" alt="..."/>
-                        <h4>Yunzhu Wang</h4>
-                        <p class="text-muted">Lead Programmer</p>
-                        {#                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>#}
-                        {#                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>#}
-                        {#                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>#}
+                        <img class="mx-auto rounded-circle" src="{% static 'assets/img/team/2.jpg' %}" alt="..."/>
+                        <h4>Cat Kutay</h4>
+                        <p class="text-muted">Project Head</p>
+                        <a class="btn btn-dark btn-social mx-2" href="https://github.com/catkutay"><i class="fab fa-github"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/cat-kutay/"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                {#                <div class="col-lg-4">#}
-                {#                    <div class="team-member">#}
-                {#                        <img class="mx-auto rounded-circle" src="{% static 'assets/img/team/3.jpg' %}" alt="..."/>#}
-                {#                        <h4>Tofan</h4>#}
-                {#                        <p class="text-muted">Lead Developer</p>#}
-                {#			    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>#}
-                {#                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>#}
-                {#                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>#}
-                {#                    </div>#}
-                {#                </div>#}
-            </div>
             <!--
                 <div class="row">
                     <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">None of us, including me, ever do great things. But we can all do small things, with great love, and together we can do something wonderful. - Mother Teresa</p></div>
@@ -327,6 +314,7 @@
                 -->
         </div>
     </section>
+
     <!-- Clients-->
     <div class="py-5">
         <div class="container">
@@ -350,6 +338,8 @@
             </div>
         </div>
     </div>
+
+
     <!-- Contact-->
     <section class="page-section" id="contact">
         <div class="container">
@@ -414,7 +404,7 @@
         <div class="row align-items-center">
             <div class="col-lg-4 text-lg-start"></div> <!-- Copyright &copy; Your Website 2022</div>-->
             <div class="col-lg-4 my-3 my-lg-0">
-                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="https://github.com/Anup-kadariya/BradleyLivingArchive"><i class="fab fa-github"></i></a>
                 <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
             </div>
