@@ -1,0 +1,852 @@
+*** Starting uWSGI 2.0.23 (64bit) on [Tue Nov  7 23:03:29 2023] ***
+compiled with version: 9.4.0 on 07 November 2023 22:07:47
+os: Linux-5.4.0-136-generic #153-Ubuntu SMP Thu Nov 24 15:56:58 UTC 2022
+nodename: studentlearn1
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /var/www/html/BradleyLivingArchive
+detected binary path: /var/www/html/BradleyLivingArchive/env/bin/uwsgi
+setuid() to 8
+chdir() to ./
+your processes number limit is 31476
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8007 fd 3
+Python version: 3.11.5 (main, Aug 25 2023, 13:19:53) [GCC 9.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7f647284b478
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 145840 bytes (142 KB) for 1 cores
+*** Operational MODE: single process ***
+Traceback (most recent call last):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/wsgi.py", line 125, in __init__
+    self.load_middleware()
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 40, in load_middleware
+    middleware = import_string(middleware_path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/html/BradleyLivingArchive/blog/middleware.py", line 3, in <module>
+    from django.contrib.sessions.models import Session
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/contrib/sessions/models.py", line 1, in <module>
+    from django.contrib.sessions.base_session import AbstractBaseSession, BaseSessionManager
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/contrib/sessions/base_session.py", line 26, in <module>
+    class AbstractBaseSession(models.Model):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/db/models/base.py", line 127, in __new__
+    app_config = apps.get_containing_app_config(module)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/registry.py", line 260, in get_containing_app_config
+    self.check_apps_ready()
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/registry.py", line 138, in check_apps_ready
+    raise AppRegistryNotReady("Apps aren't loaded yet.")
+django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.
+unable to load app 0 (mountpoint='') (callable not found or import error)
+/usr/lib/python3.11/importlib/__init__.py:126: RemovedInWagtail50Warning: Importing from wagtail.core.apps is deprecated. Use wagtail.apps instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  return _bootstrap._gcd_import(name[level:], package, level)
+/var/www/html/BradleyLivingArchive/blog/models.py:6: RemovedInWagtail50Warning: Importing from wagtail.admin.edit_handlers is deprecated. Use wagtail.admin.panels instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+/var/www/html/BradleyLivingArchive/blog/models.py:7: RemovedInWagtail50Warning: Importing from wagtail.core.blocks is deprecated. Use wagtail.blocks instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.blocks import StructBlock, CharBlock
+/var/www/html/BradleyLivingArchive/blog/models.py:8: RemovedInWagtail50Warning: Importing from wagtail.core.fields is deprecated. Use wagtail.fields instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.fields import RichTextField
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:46: RemovedInWagtail50Warning: Importing from wagtail.core.models.audit_log is deprecated. Use wagtail.models.audit_log instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .audit_log import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:52: RemovedInWagtail50Warning: Importing from wagtail.core.models.collections is deprecated. Use wagtail.models.collections instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .collections import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:62: RemovedInWagtail50Warning: Importing from wagtail.core.models.copying is deprecated. Use wagtail.models.copying instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .copying import _copy, _copy_m2m_relations, _extract_field_data  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:63: RemovedInWagtail50Warning: Importing from wagtail.core.models.i18n is deprecated. Use wagtail.models.i18n instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .i18n import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:72: RemovedInWagtail50Warning: Importing from wagtail.core.models.sites is deprecated. Use wagtail.models.sites instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .sites import Site, SiteManager, SiteRootPath  # noqa
+/var/www/html/BradleyLivingArchive/blog/models.py:12: RemovedInWagtail50Warning: Importing from wagtail.core.models is deprecated. Use wagtail.models instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.models import Page
+/var/www/html/BradleyLivingArchive/blog/models.py:94: RemovedInWagtail50Warning: ImageChooserPanel is no longer required for image choosers, and should be replaced by FieldPanel. ImageChooserPanel will be removed in a future release. See https://docs.wagtail.org/en/stable/releases/3.0.html#removal-of-special-purpose-field-panel-types
+  ImageChooserPanel("image"),
+/var/www/html/BradleyLivingArchive/blog/models.py:98: RemovedInWagtail50Warning: StreamFieldPanel is no longer required when using StreamField, and should be replaced by FieldPanel. StreamFieldPanel will be removed in a future release. See https://docs.wagtail.org/en/stable/releases/3.0.html#removal-of-special-purpose-field-panel-types
+  StreamFieldPanel("links"),
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/db/models/base.py:369: RemovedInWagtail50Warning: StreamField must explicitly set use_json_field argument to True/False instead of None.
+  value.contribute_to_class(cls, name)
+Traceback (most recent call last):
+  File "./livingarchive/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/registry.py", line 116, in populate
+    app_config.import_models()
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/config.py", line 269, in import_models
+    self.models_module = import_module(models_module_name)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/html/BradleyLivingArchive/home/models.py", line 24, in <module>
+    from wagtailcaptcha.models import WagtailCaptchaEmailForm
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtailcaptcha/models.py", line 4, in <module>
+    from .forms import WagtailCaptchaFormBuilder, remove_captcha_field
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtailcaptcha/forms.py", line 4, in <module>
+    from captcha.fields import ReCaptchaField
+ImportError: cannot import name 'ReCaptchaField' from 'captcha.fields' (/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/captcha/fields.py)
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 2641666)
+spawned uWSGI worker 1 (pid: 2641667, cores: 1)
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.23 (64bit) on [Tue Nov  7 23:05:45 2023] ***
+compiled with version: 9.4.0 on 07 November 2023 22:07:47
+os: Linux-5.4.0-136-generic #153-Ubuntu SMP Thu Nov 24 15:56:58 UTC 2022
+nodename: studentlearn1
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /var/www/html/BradleyLivingArchive
+detected binary path: /var/www/html/BradleyLivingArchive/env/bin/uwsgi
+setuid() to 8
+chdir() to ./
+your processes number limit is 31476
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8007 fd 3
+Python version: 3.11.5 (main, Aug 25 2023, 13:19:53) [GCC 9.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7faed71f2478
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 145840 bytes (142 KB) for 1 cores
+*** Operational MODE: single process ***
+Traceback (most recent call last):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/wsgi.py", line 125, in __init__
+    self.load_middleware()
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 40, in load_middleware
+    middleware = import_string(middleware_path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/html/BradleyLivingArchive/blog/middleware.py", line 3, in <module>
+    from django.contrib.sessions.models import Session
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/contrib/sessions/models.py", line 1, in <module>
+    from django.contrib.sessions.base_session import AbstractBaseSession, BaseSessionManager
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/contrib/sessions/base_session.py", line 26, in <module>
+    class AbstractBaseSession(models.Model):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/db/models/base.py", line 127, in __new__
+    app_config = apps.get_containing_app_config(module)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/registry.py", line 260, in get_containing_app_config
+    self.check_apps_ready()
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/registry.py", line 138, in check_apps_ready
+    raise AppRegistryNotReady("Apps aren't loaded yet.")
+django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.
+unable to load app 0 (mountpoint='') (callable not found or import error)
+/usr/lib/python3.11/importlib/__init__.py:126: RemovedInWagtail50Warning: Importing from wagtail.core.apps is deprecated. Use wagtail.apps instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  return _bootstrap._gcd_import(name[level:], package, level)
+/var/www/html/BradleyLivingArchive/blog/models.py:6: RemovedInWagtail50Warning: Importing from wagtail.admin.edit_handlers is deprecated. Use wagtail.admin.panels instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+/var/www/html/BradleyLivingArchive/blog/models.py:7: RemovedInWagtail50Warning: Importing from wagtail.core.blocks is deprecated. Use wagtail.blocks instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.blocks import StructBlock, CharBlock
+/var/www/html/BradleyLivingArchive/blog/models.py:8: RemovedInWagtail50Warning: Importing from wagtail.core.fields is deprecated. Use wagtail.fields instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.fields import RichTextField
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:46: RemovedInWagtail50Warning: Importing from wagtail.core.models.audit_log is deprecated. Use wagtail.models.audit_log instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .audit_log import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:52: RemovedInWagtail50Warning: Importing from wagtail.core.models.collections is deprecated. Use wagtail.models.collections instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .collections import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:62: RemovedInWagtail50Warning: Importing from wagtail.core.models.copying is deprecated. Use wagtail.models.copying instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .copying import _copy, _copy_m2m_relations, _extract_field_data  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:63: RemovedInWagtail50Warning: Importing from wagtail.core.models.i18n is deprecated. Use wagtail.models.i18n instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .i18n import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:72: RemovedInWagtail50Warning: Importing from wagtail.core.models.sites is deprecated. Use wagtail.models.sites instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .sites import Site, SiteManager, SiteRootPath  # noqa
+/var/www/html/BradleyLivingArchive/blog/models.py:12: RemovedInWagtail50Warning: Importing from wagtail.core.models is deprecated. Use wagtail.models instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.models import Page
+/var/www/html/BradleyLivingArchive/blog/models.py:94: RemovedInWagtail50Warning: ImageChooserPanel is no longer required for image choosers, and should be replaced by FieldPanel. ImageChooserPanel will be removed in a future release. See https://docs.wagtail.org/en/stable/releases/3.0.html#removal-of-special-purpose-field-panel-types
+  ImageChooserPanel("image"),
+/var/www/html/BradleyLivingArchive/blog/models.py:98: RemovedInWagtail50Warning: StreamFieldPanel is no longer required when using StreamField, and should be replaced by FieldPanel. StreamFieldPanel will be removed in a future release. See https://docs.wagtail.org/en/stable/releases/3.0.html#removal-of-special-purpose-field-panel-types
+  StreamFieldPanel("links"),
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/db/models/base.py:369: RemovedInWagtail50Warning: StreamField must explicitly set use_json_field argument to True/False instead of None.
+  value.contribute_to_class(cls, name)
+Traceback (most recent call last):
+  File "./livingarchive/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/registry.py", line 116, in populate
+    app_config.import_models()
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/config.py", line 269, in import_models
+    self.models_module = import_module(models_module_name)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/html/BradleyLivingArchive/home/models.py", line 35, in <module>
+    from captcha.fields import ReCaptchaField
+ImportError: cannot import name 'ReCaptchaField' from 'captcha.fields' (/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/captcha/fields.py)
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 2641678)
+spawned uWSGI worker 1 (pid: 2641679, cores: 1)
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.23 (64bit) on [Tue Nov  7 23:06:17 2023] ***
+compiled with version: 9.4.0 on 07 November 2023 22:07:47
+os: Linux-5.4.0-136-generic #153-Ubuntu SMP Thu Nov 24 15:56:58 UTC 2022
+nodename: studentlearn1
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /var/www/html/BradleyLivingArchive
+detected binary path: /var/www/html/BradleyLivingArchive/env/bin/uwsgi
+setuid() to 8
+chdir() to ./
+your processes number limit is 31476
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8007 fd 3
+Python version: 3.11.5 (main, Aug 25 2023, 13:19:53) [GCC 9.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7ff6baf0d478
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 145840 bytes (142 KB) for 1 cores
+*** Operational MODE: single process ***
+Traceback (most recent call last):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/wsgi.py", line 125, in __init__
+    self.load_middleware()
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 40, in load_middleware
+    middleware = import_string(middleware_path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/html/BradleyLivingArchive/blog/middleware.py", line 3, in <module>
+    from django.contrib.sessions.models import Session
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/contrib/sessions/models.py", line 1, in <module>
+    from django.contrib.sessions.base_session import AbstractBaseSession, BaseSessionManager
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/contrib/sessions/base_session.py", line 26, in <module>
+    class AbstractBaseSession(models.Model):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/db/models/base.py", line 127, in __new__
+    app_config = apps.get_containing_app_config(module)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/registry.py", line 260, in get_containing_app_config
+    self.check_apps_ready()
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/registry.py", line 138, in check_apps_ready
+    raise AppRegistryNotReady("Apps aren't loaded yet.")
+django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.
+unable to load app 0 (mountpoint='') (callable not found or import error)
+/usr/lib/python3.11/importlib/__init__.py:126: RemovedInWagtail50Warning: Importing from wagtail.core.apps is deprecated. Use wagtail.apps instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  return _bootstrap._gcd_import(name[level:], package, level)
+/var/www/html/BradleyLivingArchive/blog/models.py:6: RemovedInWagtail50Warning: Importing from wagtail.admin.edit_handlers is deprecated. Use wagtail.admin.panels instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+/var/www/html/BradleyLivingArchive/blog/models.py:7: RemovedInWagtail50Warning: Importing from wagtail.core.blocks is deprecated. Use wagtail.blocks instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.blocks import StructBlock, CharBlock
+/var/www/html/BradleyLivingArchive/blog/models.py:8: RemovedInWagtail50Warning: Importing from wagtail.core.fields is deprecated. Use wagtail.fields instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.fields import RichTextField
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:46: RemovedInWagtail50Warning: Importing from wagtail.core.models.audit_log is deprecated. Use wagtail.models.audit_log instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .audit_log import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:52: RemovedInWagtail50Warning: Importing from wagtail.core.models.collections is deprecated. Use wagtail.models.collections instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .collections import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:62: RemovedInWagtail50Warning: Importing from wagtail.core.models.copying is deprecated. Use wagtail.models.copying instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .copying import _copy, _copy_m2m_relations, _extract_field_data  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:63: RemovedInWagtail50Warning: Importing from wagtail.core.models.i18n is deprecated. Use wagtail.models.i18n instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .i18n import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:72: RemovedInWagtail50Warning: Importing from wagtail.core.models.sites is deprecated. Use wagtail.models.sites instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .sites import Site, SiteManager, SiteRootPath  # noqa
+/var/www/html/BradleyLivingArchive/blog/models.py:12: RemovedInWagtail50Warning: Importing from wagtail.core.models is deprecated. Use wagtail.models instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.models import Page
+/var/www/html/BradleyLivingArchive/blog/models.py:94: RemovedInWagtail50Warning: ImageChooserPanel is no longer required for image choosers, and should be replaced by FieldPanel. ImageChooserPanel will be removed in a future release. See https://docs.wagtail.org/en/stable/releases/3.0.html#removal-of-special-purpose-field-panel-types
+  ImageChooserPanel("image"),
+/var/www/html/BradleyLivingArchive/blog/models.py:98: RemovedInWagtail50Warning: StreamFieldPanel is no longer required when using StreamField, and should be replaced by FieldPanel. StreamFieldPanel will be removed in a future release. See https://docs.wagtail.org/en/stable/releases/3.0.html#removal-of-special-purpose-field-panel-types
+  StreamFieldPanel("links"),
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/db/models/base.py:369: RemovedInWagtail50Warning: StreamField must explicitly set use_json_field argument to True/False instead of None.
+  value.contribute_to_class(cls, name)
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7ff6baf0d478 pid: 2641685 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 2641685)
+spawned uWSGI worker 1 (pid: 2641686, cores: 1)
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.23 (64bit) on [Tue Nov  7 23:06:32 2023] ***
+compiled with version: 9.4.0 on 07 November 2023 22:07:47
+os: Linux-5.4.0-136-generic #153-Ubuntu SMP Thu Nov 24 15:56:58 UTC 2022
+nodename: studentlearn1
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /var/www/html/BradleyLivingArchive
+detected binary path: /var/www/html/BradleyLivingArchive/env/bin/uwsgi
+setuid() to 8
+chdir() to ./
+your processes number limit is 31476
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8007 fd 3
+Python version: 3.11.5 (main, Aug 25 2023, 13:19:53) [GCC 9.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fe6bc46f478
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 145840 bytes (142 KB) for 1 cores
+*** Operational MODE: single process ***
+Traceback (most recent call last):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/wsgi.py", line 125, in __init__
+    self.load_middleware()
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 40, in load_middleware
+    middleware = import_string(middleware_path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/html/BradleyLivingArchive/blog/middleware.py", line 3, in <module>
+    from django.contrib.sessions.models import Session
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/contrib/sessions/models.py", line 1, in <module>
+    from django.contrib.sessions.base_session import AbstractBaseSession, BaseSessionManager
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/contrib/sessions/base_session.py", line 26, in <module>
+    class AbstractBaseSession(models.Model):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/db/models/base.py", line 127, in __new__
+    app_config = apps.get_containing_app_config(module)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/registry.py", line 260, in get_containing_app_config
+    self.check_apps_ready()
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/registry.py", line 138, in check_apps_ready
+    raise AppRegistryNotReady("Apps aren't loaded yet.")
+django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.
+unable to load app 0 (mountpoint='') (callable not found or import error)
+/usr/lib/python3.11/importlib/__init__.py:126: RemovedInWagtail50Warning: Importing from wagtail.core.apps is deprecated. Use wagtail.apps instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  return _bootstrap._gcd_import(name[level:], package, level)
+/var/www/html/BradleyLivingArchive/blog/models.py:6: RemovedInWagtail50Warning: Importing from wagtail.admin.edit_handlers is deprecated. Use wagtail.admin.panels instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+/var/www/html/BradleyLivingArchive/blog/models.py:7: RemovedInWagtail50Warning: Importing from wagtail.core.blocks is deprecated. Use wagtail.blocks instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.blocks import StructBlock, CharBlock
+/var/www/html/BradleyLivingArchive/blog/models.py:8: RemovedInWagtail50Warning: Importing from wagtail.core.fields is deprecated. Use wagtail.fields instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.fields import RichTextField
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:46: RemovedInWagtail50Warning: Importing from wagtail.core.models.audit_log is deprecated. Use wagtail.models.audit_log instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .audit_log import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:52: RemovedInWagtail50Warning: Importing from wagtail.core.models.collections is deprecated. Use wagtail.models.collections instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .collections import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:62: RemovedInWagtail50Warning: Importing from wagtail.core.models.copying is deprecated. Use wagtail.models.copying instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .copying import _copy, _copy_m2m_relations, _extract_field_data  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:63: RemovedInWagtail50Warning: Importing from wagtail.core.models.i18n is deprecated. Use wagtail.models.i18n instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .i18n import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:72: RemovedInWagtail50Warning: Importing from wagtail.core.models.sites is deprecated. Use wagtail.models.sites instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .sites import Site, SiteManager, SiteRootPath  # noqa
+/var/www/html/BradleyLivingArchive/blog/models.py:12: RemovedInWagtail50Warning: Importing from wagtail.core.models is deprecated. Use wagtail.models instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.models import Page
+/var/www/html/BradleyLivingArchive/blog/models.py:94: RemovedInWagtail50Warning: ImageChooserPanel is no longer required for image choosers, and should be replaced by FieldPanel. ImageChooserPanel will be removed in a future release. See https://docs.wagtail.org/en/stable/releases/3.0.html#removal-of-special-purpose-field-panel-types
+  ImageChooserPanel("image"),
+/var/www/html/BradleyLivingArchive/blog/models.py:98: RemovedInWagtail50Warning: StreamFieldPanel is no longer required when using StreamField, and should be replaced by FieldPanel. StreamFieldPanel will be removed in a future release. See https://docs.wagtail.org/en/stable/releases/3.0.html#removal-of-special-purpose-field-panel-types
+  StreamFieldPanel("links"),
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/db/models/base.py:369: RemovedInWagtail50Warning: StreamField must explicitly set use_json_field argument to True/False instead of None.
+  value.contribute_to_class(cls, name)
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x7fe6bc46f478 pid: 2641688 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 2641688)
+spawned uWSGI worker 1 (pid: 2641689, cores: 1)
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.23 (64bit) on [Tue Nov  7 23:10:18 2023] ***
+compiled with version: 9.4.0 on 07 November 2023 22:07:47
+os: Linux-5.4.0-136-generic #153-Ubuntu SMP Thu Nov 24 15:56:58 UTC 2022
+nodename: studentlearn1
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /var/www/html/BradleyLivingArchive
+detected binary path: /var/www/html/BradleyLivingArchive/env/bin/uwsgi
+setuid() to 8
+chdir() to ./
+your processes number limit is 31476
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8007 fd 3
+Python version: 3.11.5 (main, Aug 25 2023, 13:19:53) [GCC 9.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7fef30ba8478
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 145840 bytes (142 KB) for 1 cores
+*** Operational MODE: single process ***
+Traceback (most recent call last):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/wsgi.py", line 125, in __init__
+    self.load_middleware()
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 40, in load_middleware
+    middleware = import_string(middleware_path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/html/BradleyLivingArchive/blog/middleware.py", line 3, in <module>
+    from django.contrib.sessions.models import Session
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/contrib/sessions/models.py", line 1, in <module>
+    from django.contrib.sessions.base_session import AbstractBaseSession, BaseSessionManager
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/contrib/sessions/base_session.py", line 26, in <module>
+    class AbstractBaseSession(models.Model):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/db/models/base.py", line 127, in __new__
+    app_config = apps.get_containing_app_config(module)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/registry.py", line 260, in get_containing_app_config
+    self.check_apps_ready()
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/registry.py", line 138, in check_apps_ready
+    raise AppRegistryNotReady("Apps aren't loaded yet.")
+django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.
+unable to load app 0 (mountpoint='') (callable not found or import error)
+/usr/lib/python3.11/importlib/__init__.py:126: RemovedInWagtail50Warning: Importing from wagtail.core.apps is deprecated. Use wagtail.apps instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  return _bootstrap._gcd_import(name[level:], package, level)
+/var/www/html/BradleyLivingArchive/blog/models.py:6: RemovedInWagtail50Warning: Importing from wagtail.admin.edit_handlers is deprecated. Use wagtail.admin.panels instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+/var/www/html/BradleyLivingArchive/blog/models.py:7: RemovedInWagtail50Warning: Importing from wagtail.core.blocks is deprecated. Use wagtail.blocks instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.blocks import StructBlock, CharBlock
+/var/www/html/BradleyLivingArchive/blog/models.py:8: RemovedInWagtail50Warning: Importing from wagtail.core.fields is deprecated. Use wagtail.fields instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.fields import RichTextField
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:46: RemovedInWagtail50Warning: Importing from wagtail.core.models.audit_log is deprecated. Use wagtail.models.audit_log instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .audit_log import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:52: RemovedInWagtail50Warning: Importing from wagtail.core.models.collections is deprecated. Use wagtail.models.collections instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .collections import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:62: RemovedInWagtail50Warning: Importing from wagtail.core.models.copying is deprecated. Use wagtail.models.copying instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .copying import _copy, _copy_m2m_relations, _extract_field_data  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:63: RemovedInWagtail50Warning: Importing from wagtail.core.models.i18n is deprecated. Use wagtail.models.i18n instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .i18n import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:72: RemovedInWagtail50Warning: Importing from wagtail.core.models.sites is deprecated. Use wagtail.models.sites instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .sites import Site, SiteManager, SiteRootPath  # noqa
+/var/www/html/BradleyLivingArchive/blog/models.py:12: RemovedInWagtail50Warning: Importing from wagtail.core.models is deprecated. Use wagtail.models instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.models import Page
+/var/www/html/BradleyLivingArchive/blog/models.py:94: RemovedInWagtail50Warning: ImageChooserPanel is no longer required for image choosers, and should be replaced by FieldPanel. ImageChooserPanel will be removed in a future release. See https://docs.wagtail.org/en/stable/releases/3.0.html#removal-of-special-purpose-field-panel-types
+  ImageChooserPanel("image"),
+/var/www/html/BradleyLivingArchive/blog/models.py:98: RemovedInWagtail50Warning: StreamFieldPanel is no longer required when using StreamField, and should be replaced by FieldPanel. StreamFieldPanel will be removed in a future release. See https://docs.wagtail.org/en/stable/releases/3.0.html#removal-of-special-purpose-field-panel-types
+  StreamFieldPanel("links"),
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/db/models/base.py:369: RemovedInWagtail50Warning: StreamField must explicitly set use_json_field argument to True/False instead of None.
+  value.contribute_to_class(cls, name)
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7fef30ba8478 pid: 2641978 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 2641978)
+spawned uWSGI worker 1 (pid: 2641979, cores: 1)
+Invalid HTTP_HOST header: 'bradleylivingarchive.dalang.com.au'. You may need to add 'bradleylivingarchive.dalang.com.au' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'bradleylivingarchive.dalang.com.au'. You may need to add 'bradleylivingarchive.dalang.com.au' to ALLOWED_HOSTS.
+Bad Request: /.env
+[pid: 2641979|app: 0|req: 1/1] 139.59.182.142 () {36 vars in 460 bytes} [Tue Nov  7 23:10:19 2023] GET /.env => generated 64437 bytes in 713 msecs (HTTP/1.1 400) 1 headers in 68 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'bradleylivingarchive.dalang.com.au'. You may need to add 'bradleylivingarchive.dalang.com.au' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'bradleylivingarchive.dalang.com.au'. You may need to add 'bradleylivingarchive.dalang.com.au' to ALLOWED_HOSTS.
+Bad Request: /.git/config
+[pid: 2641979|app: 0|req: 2/2] 139.59.182.142 () {36 vars in 474 bytes} [Tue Nov  7 23:10:21 2023] GET /.git/config => generated 64521 bytes in 42 msecs (HTTP/1.1 400) 1 headers in 68 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'bradleylivingarchive.dalang.com.au'. You may need to add 'bradleylivingarchive.dalang.com.au' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'bradleylivingarchive.dalang.com.au'. You may need to add 'bradleylivingarchive.dalang.com.au' to ALLOWED_HOSTS.
+Bad Request: /s/435313e2832313e20383e2833313/_/;/META-INF/maven/com.atlassian.jira/jira-webapp-dist/pom.properties
+[pid: 2641979|app: 0|req: 3/3] 139.59.182.142 () {36 vars in 652 bytes} [Tue Nov  7 23:10:22 2023] GET /s/435313e2832313e20383e2833313/_/;/META-INF/maven/com.atlassian.jira/jira-webapp-dist/pom.properties => generated 65601 bytes in 40 msecs (HTTP/1.1 400) 1 headers in 68 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'bradleylivingarchive.dalang.com.au'. You may need to add 'bradleylivingarchive.dalang.com.au' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'bradleylivingarchive.dalang.com.au'. You may need to add 'bradleylivingarchive.dalang.com.au' to ALLOWED_HOSTS.
+Bad Request: /config.json
+[pid: 2641979|app: 0|req: 4/4] 139.59.182.142 () {36 vars in 474 bytes} [Tue Nov  7 23:10:23 2023] GET /config.json => generated 64521 bytes in 40 msecs (HTTP/1.1 400) 1 headers in 68 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'bradleylivingarchive.dalang.com.au'. You may need to add 'bradleylivingarchive.dalang.com.au' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'bradleylivingarchive.dalang.com.au'. You may need to add 'bradleylivingarchive.dalang.com.au' to ALLOWED_HOSTS.
+Bad Request: /telescope/requests
+[pid: 2641979|app: 0|req: 5/5] 139.59.182.142 () {36 vars in 488 bytes} [Tue Nov  7 23:10:25 2023] GET /telescope/requests => generated 64605 bytes in 43 msecs (HTTP/1.1 400) 1 headers in 68 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'bradleylivingarchive.dalang.com.au'. You may need to add 'bradleylivingarchive.dalang.com.au' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'bradleylivingarchive.dalang.com.au'. You may need to add 'bradleylivingarchive.dalang.com.au' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 2641979|app: 0|req: 6/6] 139.59.182.142 () {36 vars in 501 bytes} [Tue Nov  7 23:10:26 2023] GET /?rest_route=/wp/v2/users/ => generated 64977 bytes in 43 msecs (HTTP/1.1 400) 1 headers in 68 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'bradleylivingarchive.dalang.com.au'. You may need to add 'bradleylivingarchive.dalang.com.au' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'bradleylivingarchive.dalang.com.au'. You may need to add 'bradleylivingarchive.dalang.com.au' to ALLOWED_HOSTS.
+Bad Request: /
+[pid: 2641979|app: 0|req: 7/7] 150.203.2.65 () {56 vars in 1048 bytes} [Tue Nov  7 23:10:34 2023] GET / => generated 66331 bytes in 45 msecs (HTTP/1.1 400) 1 headers in 68 bytes (1 switches on core 0)
+Invalid HTTP_HOST header: 'bradleylivingarchive.dalang.com.au'. You may need to add 'bradleylivingarchive.dalang.com.au' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/http/request.py", line 152, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'bradleylivingarchive.dalang.com.au'. You may need to add 'bradleylivingarchive.dalang.com.au' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+[pid: 2641979|app: 0|req: 8/8] 150.203.2.65 () {54 vars in 1001 bytes} [Tue Nov  7 23:10:34 2023] GET /favicon.ico => generated 66203 bytes in 44 msecs (HTTP/1.1 400) 1 headers in 68 bytes (1 switches on core 0)
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.23 (64bit) on [Tue Nov  7 23:11:36 2023] ***
+compiled with version: 9.4.0 on 07 November 2023 22:07:47
+os: Linux-5.4.0-136-generic #153-Ubuntu SMP Thu Nov 24 15:56:58 UTC 2022
+nodename: studentlearn1
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /var/www/html/BradleyLivingArchive
+detected binary path: /var/www/html/BradleyLivingArchive/env/bin/uwsgi
+setuid() to 8
+chdir() to ./
+your processes number limit is 31476
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8007 fd 3
+Python version: 3.11.5 (main, Aug 25 2023, 13:19:53) [GCC 9.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7feda9747478
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 145840 bytes (142 KB) for 1 cores
+*** Operational MODE: single process ***
+Traceback (most recent call last):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/wsgi.py", line 125, in __init__
+    self.load_middleware()
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 40, in load_middleware
+    middleware = import_string(middleware_path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/html/BradleyLivingArchive/blog/middleware.py", line 3, in <module>
+    from django.contrib.sessions.models import Session
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/contrib/sessions/models.py", line 1, in <module>
+    from django.contrib.sessions.base_session import AbstractBaseSession, BaseSessionManager
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/contrib/sessions/base_session.py", line 26, in <module>
+    class AbstractBaseSession(models.Model):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/db/models/base.py", line 127, in __new__
+    app_config = apps.get_containing_app_config(module)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/registry.py", line 260, in get_containing_app_config
+    self.check_apps_ready()
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/registry.py", line 138, in check_apps_ready
+    raise AppRegistryNotReady("Apps aren't loaded yet.")
+django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.
+unable to load app 0 (mountpoint='') (callable not found or import error)
+/usr/lib/python3.11/importlib/__init__.py:126: RemovedInWagtail50Warning: Importing from wagtail.core.apps is deprecated. Use wagtail.apps instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  return _bootstrap._gcd_import(name[level:], package, level)
+/var/www/html/BradleyLivingArchive/blog/models.py:6: RemovedInWagtail50Warning: Importing from wagtail.admin.edit_handlers is deprecated. Use wagtail.admin.panels instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+/var/www/html/BradleyLivingArchive/blog/models.py:7: RemovedInWagtail50Warning: Importing from wagtail.core.blocks is deprecated. Use wagtail.blocks instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.blocks import StructBlock, CharBlock
+/var/www/html/BradleyLivingArchive/blog/models.py:8: RemovedInWagtail50Warning: Importing from wagtail.core.fields is deprecated. Use wagtail.fields instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.fields import RichTextField
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:46: RemovedInWagtail50Warning: Importing from wagtail.core.models.audit_log is deprecated. Use wagtail.models.audit_log instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .audit_log import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:52: RemovedInWagtail50Warning: Importing from wagtail.core.models.collections is deprecated. Use wagtail.models.collections instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .collections import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:62: RemovedInWagtail50Warning: Importing from wagtail.core.models.copying is deprecated. Use wagtail.models.copying instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .copying import _copy, _copy_m2m_relations, _extract_field_data  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:63: RemovedInWagtail50Warning: Importing from wagtail.core.models.i18n is deprecated. Use wagtail.models.i18n instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .i18n import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:72: RemovedInWagtail50Warning: Importing from wagtail.core.models.sites is deprecated. Use wagtail.models.sites instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .sites import Site, SiteManager, SiteRootPath  # noqa
+/var/www/html/BradleyLivingArchive/blog/models.py:12: RemovedInWagtail50Warning: Importing from wagtail.core.models is deprecated. Use wagtail.models instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.models import Page
+/var/www/html/BradleyLivingArchive/blog/models.py:94: RemovedInWagtail50Warning: ImageChooserPanel is no longer required for image choosers, and should be replaced by FieldPanel. ImageChooserPanel will be removed in a future release. See https://docs.wagtail.org/en/stable/releases/3.0.html#removal-of-special-purpose-field-panel-types
+  ImageChooserPanel("image"),
+/var/www/html/BradleyLivingArchive/blog/models.py:98: RemovedInWagtail50Warning: StreamFieldPanel is no longer required when using StreamField, and should be replaced by FieldPanel. StreamFieldPanel will be removed in a future release. See https://docs.wagtail.org/en/stable/releases/3.0.html#removal-of-special-purpose-field-panel-types
+  StreamFieldPanel("links"),
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/db/models/base.py:369: RemovedInWagtail50Warning: StreamField must explicitly set use_json_field argument to True/False instead of None.
+  value.contribute_to_class(cls, name)
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7feda9747478 pid: 2641986 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 2641986)
+spawned uWSGI worker 1 (pid: 2641987, cores: 1)
+[pid: 2641987|app: 0|req: 1/1] 150.203.2.65 () {58 vars in 1078 bytes} [Tue Nov  7 23:11:40 2023] GET / => generated 34937 bytes in 781 msecs (HTTP/1.1 200) 8 headers in 359 bytes (1 switches on core 0)
+[pid: 2641987|app: 0|req: 2/2] 150.203.2.65 () {56 vars in 1065 bytes} [Tue Nov  7 23:11:41 2023] GET /livingarchive/static/css/home_page.css => generated 772 bytes in 5 msecs via sendfile() (HTTP/1.1 200) 8 headers in 292 bytes (0 switches on core 0)
+[pid: 2641987|app: 0|req: 3/3] 150.203.2.65 () {56 vars in 1059 bytes} [Tue Nov  7 23:11:41 2023] GET /livingarchive/static/css/styles.css => generated 221049 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 8 headers in 292 bytes (0 switches on core 0)
+[pid: 2641987|app: 0|req: 4/4] 150.203.2.65 () {56 vars in 1160 bytes} [Tue Nov  7 23:11:41 2023] GET /livingarchive/static/assets/img/header-bg.jpg => generated 99980 bytes in 4 msecs via sendfile() (HTTP/1.1 200) 8 headers in 296 bytes (0 switches on core 0)
+[pid: 2641987|app: 0|req: 5/5] 150.203.2.65 () {56 vars in 1121 bytes} [Tue Nov  7 23:11:42 2023] GET /livingarchive/static/assets/img/team/1.jpeg => generated 167978 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 8 headers in 290 bytes (0 switches on core 0)
+[pid: 2641987|app: 0|req: 6/6] 150.203.2.65 () {56 vars in 1119 bytes} [Tue Nov  7 23:11:42 2023] GET /livingarchive/static/assets/img/team/2.jpg => generated 5514 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 8 headers in 287 bytes (0 switches on core 0)
+[pid: 2641987|app: 0|req: 7/7] 150.203.2.65 () {56 vars in 1043 bytes} [Tue Nov  7 23:11:42 2023] GET /livingarchive/static/js/scripts.js => generated 1860 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 8 headers in 304 bytes (0 switches on core 0)
+[pid: 2641987|app: 0|req: 8/8] 150.203.2.65 () {56 vars in 1125 bytes} [Tue Nov  7 23:11:42 2023] GET /livingarchive/static/assets/img/logos/cdu.png => generated 8575 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 8 headers in 288 bytes (0 switches on core 0)
+[pid: 2641987|app: 0|req: 9/9] 150.203.2.65 () {56 vars in 1161 bytes} [Tue Nov  7 23:11:42 2023] GET /livingarchive/static/assets/img/map-image.png => generated 364038 bytes in 7 msecs via sendfile() (HTTP/1.1 200) 8 headers in 296 bytes (0 switches on core 0)
+[pid: 2641987|app: 0|req: 10/10] 150.203.2.65 () {56 vars in 1114 bytes} [Tue Nov  7 23:11:42 2023] GET /livingarchive/static/assets/favicon.ico => generated 2238 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 8 headers in 307 bytes (0 switches on core 0)
+[pid: 2641987|app: 0|req: 11/11] 150.203.2.65 () {60 vars in 1245 bytes} [Tue Nov  7 23:12:04 2023] GET /my-dad-a-poem-by-uncle-jim-berg-2020/ => generated 5637 bytes in 30 msecs (HTTP/1.1 200) 7 headers in 222 bytes (1 switches on core 0)
+[pid: 2641987|app: 0|req: 12/12] 150.203.2.65 () {60 vars in 1195 bytes} [Tue Nov  7 23:12:11 2023] GET /testing-vid/ => generated 4601 bytes in 20 msecs (HTTP/1.1 200) 7 headers in 222 bytes (1 switches on core 0)
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.23 (64bit) on [Tue Nov  7 23:14:57 2023] ***
+compiled with version: 9.4.0 on 07 November 2023 22:07:47
+os: Linux-5.4.0-136-generic #153-Ubuntu SMP Thu Nov 24 15:56:58 UTC 2022
+nodename: studentlearn1
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /var/www/html/BradleyLivingArchive
+detected binary path: /var/www/html/BradleyLivingArchive/env/bin/uwsgi
+setuid() to 8
+chdir() to ./
+your processes number limit is 31476
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8007 fd 3
+Python version: 3.11.5 (main, Aug 25 2023, 13:19:53) [GCC 9.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x7f03d5975478
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 145840 bytes (142 KB) for 1 cores
+*** Operational MODE: single process ***
+Traceback (most recent call last):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/wsgi.py", line 125, in __init__
+    self.load_middleware()
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 40, in load_middleware
+    middleware = import_string(middleware_path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/utils/module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/var/www/html/BradleyLivingArchive/blog/middleware.py", line 3, in <module>
+    from django.contrib.sessions.models import Session
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/contrib/sessions/models.py", line 1, in <module>
+    from django.contrib.sessions.base_session import AbstractBaseSession, BaseSessionManager
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/contrib/sessions/base_session.py", line 26, in <module>
+    class AbstractBaseSession(models.Model):
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/db/models/base.py", line 127, in __new__
+    app_config = apps.get_containing_app_config(module)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/registry.py", line 260, in get_containing_app_config
+    self.check_apps_ready()
+  File "/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/apps/registry.py", line 138, in check_apps_ready
+    raise AppRegistryNotReady("Apps aren't loaded yet.")
+django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.
+unable to load app 0 (mountpoint='') (callable not found or import error)
+/usr/lib/python3.11/importlib/__init__.py:126: RemovedInWagtail50Warning: Importing from wagtail.core.apps is deprecated. Use wagtail.apps instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  return _bootstrap._gcd_import(name[level:], package, level)
+/var/www/html/BradleyLivingArchive/blog/models.py:6: RemovedInWagtail50Warning: Importing from wagtail.admin.edit_handlers is deprecated. Use wagtail.admin.panels instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+/var/www/html/BradleyLivingArchive/blog/models.py:7: RemovedInWagtail50Warning: Importing from wagtail.core.blocks is deprecated. Use wagtail.blocks instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.blocks import StructBlock, CharBlock
+/var/www/html/BradleyLivingArchive/blog/models.py:8: RemovedInWagtail50Warning: Importing from wagtail.core.fields is deprecated. Use wagtail.fields instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.fields import RichTextField
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:46: RemovedInWagtail50Warning: Importing from wagtail.core.models.audit_log is deprecated. Use wagtail.models.audit_log instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .audit_log import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:52: RemovedInWagtail50Warning: Importing from wagtail.core.models.collections is deprecated. Use wagtail.models.collections instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .collections import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:62: RemovedInWagtail50Warning: Importing from wagtail.core.models.copying is deprecated. Use wagtail.models.copying instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .copying import _copy, _copy_m2m_relations, _extract_field_data  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:63: RemovedInWagtail50Warning: Importing from wagtail.core.models.i18n is deprecated. Use wagtail.models.i18n instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .i18n import (  # noqa
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/wagtail/core/models/__init__.py:72: RemovedInWagtail50Warning: Importing from wagtail.core.models.sites is deprecated. Use wagtail.models.sites instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from .sites import Site, SiteManager, SiteRootPath  # noqa
+/var/www/html/BradleyLivingArchive/blog/models.py:12: RemovedInWagtail50Warning: Importing from wagtail.core.models is deprecated. Use wagtail.models instead. See https://docs.wagtail.org/en/stable/releases/3.0.html#changes-to-module-paths
+  from wagtail.core.models import Page
+/var/www/html/BradleyLivingArchive/blog/models.py:94: RemovedInWagtail50Warning: ImageChooserPanel is no longer required for image choosers, and should be replaced by FieldPanel. ImageChooserPanel will be removed in a future release. See https://docs.wagtail.org/en/stable/releases/3.0.html#removal-of-special-purpose-field-panel-types
+  ImageChooserPanel("image"),
+/var/www/html/BradleyLivingArchive/blog/models.py:98: RemovedInWagtail50Warning: StreamFieldPanel is no longer required when using StreamField, and should be replaced by FieldPanel. StreamFieldPanel will be removed in a future release. See https://docs.wagtail.org/en/stable/releases/3.0.html#removal-of-special-purpose-field-panel-types
+  StreamFieldPanel("links"),
+/var/www/html/BradleyLivingArchive/env/lib/python3.11/site-packages/django/db/models/base.py:369: RemovedInWagtail50Warning: StreamField must explicitly set use_json_field argument to True/False instead of None.
+  value.contribute_to_class(cls, name)
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x7f03d5975478 pid: 2642080 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 2642080)
+spawned uWSGI worker 1 (pid: 2642081, cores: 1)
+Tue Nov  7 23:15:52 2023 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
