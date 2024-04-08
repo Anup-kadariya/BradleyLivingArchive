@@ -1,4 +1,4 @@
-source ./venv/bin/activate
+source ./env/bin/activate
 #setup
 #python3 manage.py makemigrations
 #python3 manage.py migrate
