@@ -53,5 +53,6 @@ wagtailstreamforms==4.0.4
 wagtailvideos==4.2.0
 wagtailmenus==3.1.8
 webencodings==0.5.1
+uwsgi
 Willow==1.4.1
 uwsgi
