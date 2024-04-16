@@ -263,6 +263,7 @@
                                 </div>
                             </div>
                             <p></p>
+                            <!-- for uploaded video with video detials put post.video for introduction put post.intro -->
                             <div class="portfolio-caption content">
                                 <div class="portfolio-caption-heading"><a href="{{ post.url }}">{{ post.intro }}</a>
                                 </div>
@@ -273,6 +274,19 @@
                                 <!--style="width:500px;height:200px;"-->
                                 <img class="img-fluid" src="{{ blog_img.url }}" alt="{{ blog_img.alt }}">
                             </a>
+                            <!-- getting uploaded videos -->
+
+                            {% if post.video %}
+                            <a href="{{ post.url }}">
+                                <video class="img-fluid" width="500" height="200" controls>
+                                  <source src="{{post.video.url}}" type="video/mp4"> 
+                                </video>
+                            </a>
+                            
+                            {% else %}
+                            there are no uploaded video
+                            <!-- {{ post.body|richtext }} -->
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}
