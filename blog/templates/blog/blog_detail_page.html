@@ -65,7 +65,13 @@
     </p>
     {% if self.video %}
         {% load wagtailvideos_tags %}
-        {% video self.video autoplay controls width=600 %}
+        <div class="text-center">
+        <a href="{{ post.url }}">
+            <video class="img-fluid" width="500" height="200" controls>
+              <source src="{{self.video.url}}" type="video/mp4"> 
+            </video>
+        </div>
+        </a>
     {% endif %}
     <p style="color: black; font-size: larger; width:800px; margin: auto;  text-align: left; text-transform: initial;">
         <strong>Posted by : {{ self.owner.get_full_name }}</strong>
@@ -82,14 +88,11 @@
     </p>
     <div style="color: black; font-size: larger; width:800px; margin: auto;  text-align: justify;">
         {% if accept %}
-            <p>{{ self.body|richtext }}</p>
+            <p>{{ self.body|richtext }}</p> 
         {% else %}
             <p>{{ self.intro|richtext }}</p>
         {% endif %}
     </div>
-
-
-
 
 
 
