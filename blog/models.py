@@ -3,7 +3,7 @@ from django.db import models
 import os
 from django.template.response import TemplateResponse
 from dotenv import load_dotenv
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel
 from wagtail.core.blocks import StructBlock, CharBlock
 from wagtail.core.fields import RichTextField
 from wagtail.core.fields import StreamField
@@ -13,8 +13,14 @@ from wagtail.core.models import Page
 from wagtail.documents.blocks import DocumentChooserBlock
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.models import PAGE_TEMPLATE_VAR
-from wagtailgmaps.edit_handlers import MapFieldPanel
 from wagtailvideos.edit_handlers import VideoChooserPanel
+from wagtail.embeds.blocks import EmbedBlock
+from wagtail import blocks
+
+from wagtailgeowidget.panels import GeoAddressPanel, GoogleMapsPanel
+from wagtailgeowidget import geocoders
+from wagtailgeowidget.panels import GoogleMapsPanel
+
 keys=load_dotenv("./livingarchive/settings/.env")
 api_key=str(os.getenv("API_KEY"))
 
@@ -40,6 +46,13 @@ class BlogListingPage(Page):
 
 
 
+class InlineVideoEmbedBlock(StructBlock):
+    video_embed = EmbedBlock(
+        required=False,
+        help_text="Insert a video url here"
+
+    )
+
 
 class LinkBlock(StructBlock):
     title = CharBlock(required=True, help_text="Enter the link title")
@@ -58,7 +71,10 @@ class BlogDetailPage(Page):
     template = "blog/blog_detail_page.html"
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
-    body = RichTextField(blank=True)
+    body = StreamField([
+        ('paragraph', blocks.RichTextBlock()),
+        ('video', InlineVideoEmbedBlock()),
+        ])
 
     image = models.ForeignKey(
         "wagtailimages.Image",
@@ -80,6 +96,7 @@ class BlogDetailPage(Page):
     email = User(Page.owner).email.replace("@", " at ")
 
     address = models.CharField(max_length=255, null=True)
+    location = models.CharField(max_length=250, blank=True, null=True)
 
     links = StreamField(
         [
@@ -94,29 +111,14 @@ class BlogDetailPage(Page):
         ImageChooserPanel("image"),
         VideoChooserPanel("video"),
         FieldPanel("body", classname="full"),
-        MapFieldPanel("address", latlng=True, zoom=4),
+        # MapFieldPanel("address", latlng=True, zoom=4),
         StreamFieldPanel("links"),
-    ]
+        MultiFieldPanel([
+                    GeoAddressPanel("address", geocoder=geocoders.GOOGLE_MAPS),
+                    GoogleMapsPanel("location", address_field="address"),
+                ], heading="Location"), 
+            ]
     subpage_types = []
-
-    # def get_admin_display_title(self):
-    #     return format_html(
-    #         '<a href="{}">{}</a>',
-    #         reverse("wagtailadmin_pages:edit", args=[self.id]),
-    #         self.title,
-    #     )
-    # def get_template(self, request, *args, **kwargs):
-    #     tester = self.permissions_for_user(request.user)
-    #     # if self.permissions_for_user(request.user):
-    #     #     return 'blog/password_required.html'
-    #     # 检查用户是否有查看权限
-    #     # print(self.get_view_restrictions())
-    #     # can_view = permissions.can_view()
-    #     # blog_post = self.specific
-    #     # print(blog_post.serve(request))
-    #     # return blog_post.serve(request)
-    #     # print(BlogDetailPage.objects.private())
-    #     return self.template
 
     def get_context(self, request, *args, **kwargs):
         context = {
