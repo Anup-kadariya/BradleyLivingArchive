@@ -64,36 +64,61 @@
         {% endif %}
     </p>
     {% if self.video %}
-        {% load wagtailvideos_tags %}
-        <div class="text-center">
-        <a href="{{ post.url }}">
-            <video class="img-fluid" width="500" height="200" controls>
-              <source src="{{self.video.url}}" type="video/mp4"> 
-            </video>
-        </div>
-        </a>
-    {% endif %}
-    <p style="color: black; font-size: larger; width:800px; margin: auto;  text-align: left; text-transform: initial;">
-        <strong>Posted by : {{ self.owner.get_full_name }}</strong>
-        <span style="float:right;">
-                        <strong>{{ self.date }}</strong>
-                    </span>
-    </p>
-    <p style="color: black; font-size: larger; width:800px; margin: auto;  text-align: left; text-transform: initial;">
-        <strong>Contact : {{ self.owner.email|to_at }}</strong>
-        <span style="float:right;">
-                        <strong><a href="https://maps.google.com/?q={{ self.address }}" style="text-decoration: none;"
-                                   target="_blank">Maps</a></strong>
-                    </span>
-    </p>
-    <div style="color: black; font-size: larger; width:800px; margin: auto;  text-align: justify;">
-        {% if accept %}
-            <p>{{ self.body|richtext }}</p> 
-        {% else %}
-            <p>{{ self.intro|richtext }}</p>
-        {% endif %}
-    </div>
+    {% load wagtailvideos_tags %}
 
+    <div class="text-center">
+
+    <a href="{{ post.url }}">
+        <video class="img-fluid" width="500" height="200" controls>
+          <source src="{{self.video.url}}" type="video/mp4"> 
+        </video>
+    </div>
+    </a>
+
+    {% else %}
+
+
+    <div class="text-center">
+        <br>
+        {% for block in self.body %}
+            {% if block.block_type == 'video_embeded' %}
+            <div class="container" style="text-align: center;">
+            <div class="video-container">
+                    {{ block.value.video_embed.html }}
+                    </div>
+                    </div>
+            {% endif %}
+        
+        {% endfor %}
+        {% for block in self.body %}
+            {% if block.block_type == 'paragraph' %}
+            <strong>{{ block.value }}</strong>
+            {% endif %}  
+        {% endfor %}
+    <!-- <a href="{{ post.url }}">
+        <video class="img-fluid" width="500" height="200" controls>
+          <source src="{{self.video.url}}" type="video/mp4"> 
+        </video> -->
+    </div>
+        
+    {% endif %}  
+
+<p style="color: black; font-size: larger; width: 800px; margin: auto; text-align: left; text-transform: initial;">
+    <strong>Posted by: {{ self.owner.get_full_name }}</strong>
+    <span style="float: right;">
+        <strong>{{ self.date }}</strong>
+    </span>
+</p>
+<p style="color: black; font-size: larger; width: 800px; margin: auto; text-align: left; text-transform: initial;">
+    <strong>Contact: {{ self.owner.email|to_at }}</strong>
+    <span style="float: right;">
+        <strong><a href="https://maps.google.com/?q={{ self.address }}" style="text-decoration: none;"
+                target="_blank">Maps</a></strong>
+    </span>
+</p>
+<div style="color: black; font-size: larger; width: 800px; margin: auto; text-align: justify;">
+    
+</div>
 
 
 

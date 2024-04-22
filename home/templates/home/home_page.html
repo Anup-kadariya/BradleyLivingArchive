@@ -1,5 +1,9 @@
 {% load static wagtailcore_tags wagtailuserbar %}
 {% load wagtailimages_tags %}
+{% load wagtailembeds_tags %}
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -245,8 +249,24 @@
             </body>
         </div>
     </section>
-
-
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+    
+        .video-container video,
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    
     <!-- Projects Grid-->
     <section class="page-section bg-light" id="projects">
         <div class="container">
@@ -259,34 +279,38 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item pf-inner-box">
                             <div class="portfolio-caption title">
-                                <div class="portfolio-caption-heading"><a href="{{ post.url }}"><b>{{ post.title }}</b></a>
-                                </div>
+                                <div class="portfolio-caption-heading"><a href="{{ post.url }}"><b>{{ post.title }}</b></a></div>
                             </div>
                             <p></p>
-                            <!-- for uploaded video with video detials put post.video for introduction put post.intro -->
+                            <!-- for uploaded video with video details put post.video for introduction put post.intro -->
                             <div class="portfolio-caption content">
-                                <div class="portfolio-caption-heading"><a href="{{ post.url }}">{{ post.intro }}</a>
-                                </div>
+                                <div class="portfolio-caption-heading"><a href="{{ post.url }}">{{ post.intro }}</a></div>
                             </div>
                             <p></p>
                             {% image post.image original as blog_img %}
                             <a href="{{ post.url }}">
-                                <!--style="width:500px;height:200px;"-->
                                 <img class="img-fluid" src="{{ blog_img.url }}" alt="{{ blog_img.alt }}">
                             </a>
                             <!-- getting uploaded videos -->
-
-                            {% if post.video %}
-                            <a href="{{ post.url }}">
-                                <video class="img-fluid" width="500" height="200" controls>
-                                  <source src="{{post.video.url}}" type="video/mp4"> 
-                                </video>
-                            </a>
-                            
-                            {% else %}
-                            there are no uploaded video
-                            <!-- {{ post.body|richtext }} -->
-                            {% endif %}
+                            {% load wagtailvideos_tags %}
+                            <div class="video-container">
+                                {% if post.video %}
+                                    <a href="{{ post.url }}">
+                                        <video class="img-fluid" width="100%" height="auto" controls>
+                                            <source src="{{ post.video.url }}" type="video/mp4"> 
+                                        </video>                      
+                                    </a>
+                                {% else %}
+                                    {% for block in post.body %}
+                                        {% if block.block_type == 'video_embeded' %}
+                                            <a href="{{ post.url }}">
+                                                {{ block.value.video_embed.html }}
+                                            </a>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <div class="body"></div>
                         </div>
                     </div>
                 {% endfor %}
@@ -294,6 +318,8 @@
             <div class="more-link"><a href="/blog/">See More</a></div>
         </div>
     </section>
+    
+    
 
     <!-- Team-->
     <section class="page-section bg-light" id="team">

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "search",
     "wagtailgmaps",
     "blog",
+    'wagtailgeowidget',
     # "module",
     # 'wagtail',
     "wagtailvideos",
@@ -197,6 +198,13 @@ WAGTAILSEARCH_BACKENDS = {
     }
 }
 
+WAGTAILEMBEDS_FINDERS = [
+    {
+        'class': 'wagtail.embeds.finders.oembed'
+    }
+]
+
+WAGTAILEMBEDS_RESPONSIVE_HTML = True
 # LOGGING = {
 # 'version': 1,
 # 'disable_existing_loggers': False,
@@ -268,3 +276,6 @@ RECAPTCHA_PUBLIC_KEY = "6LfsIJYjAAAAAMOjW3Ysb4IdNQyxRatxcu1PmavL"
 RECAPTCHA_PRIVATE_KEY = "6LfsIJYjAAAAAJMlLIzgjkOXPAdnqffi1syvL3o2"
 NOCAPTCHA = True
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+GOOGLE_MAPS_V3_APIKEY= "AIzaSyB35JWbAVaroVf_foJTg2xjjbPw3EFrvlw"
+
+WAGTAIL_ADDRESS_MAP_CENTER = 'Wellington, New Zealand'  # It must be a properly formatted address
