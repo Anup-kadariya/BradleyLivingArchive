@@ -73,7 +73,7 @@ class BlogDetailPage(Page):
     intro = models.CharField(max_length=250)
     body = StreamField([
         ('paragraph', blocks.RichTextBlock()),
-        ('video', InlineVideoEmbedBlock()),
+        ('video_embeded', InlineVideoEmbedBlock()),
         ])
 
     image = models.ForeignKey(
