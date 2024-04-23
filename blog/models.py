@@ -20,6 +20,7 @@ from wagtail import blocks
 from wagtailgeowidget.panels import GeoAddressPanel, GoogleMapsPanel
 from wagtailgeowidget import geocoders
 from wagtailgeowidget.panels import GoogleMapsPanel
+from wagtailvideos.blocks import VideoChooserBlock
 
 keys=load_dotenv("./livingarchive/settings/.env")
 api_key=str(os.getenv("API_KEY"))
@@ -71,10 +72,12 @@ class BlogDetailPage(Page):
     template = "blog/blog_detail_page.html"
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
-    body = StreamField([
-        ('paragraph', blocks.RichTextBlock()),
-        ('video_embeded', InlineVideoEmbedBlock()),
-        ])
+    body = RichTextField(blank=True)
+
+    videos_here = StreamField([
+        ('upload_video', VideoChooserBlock(required=False)),
+        ('embed_video', InlineVideoEmbedBlock()),
+        ] , null=True, blank=True)
 
     image = models.ForeignKey(
         "wagtailimages.Image",
@@ -84,13 +87,13 @@ class BlogDetailPage(Page):
         on_delete=models.SET_NULL,
     )
 
-    video = models.ForeignKey(
-        "wagtailvideos.Video",
-        related_name="+",
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-    )
+    # video = models.ForeignKey(
+    #     "wagtailvideos.Video",
+    #     related_name="+",
+    #     null=True,
+    #     blank=True,
+    #     on_delete=models.SET_NULL,
+    # )
     # Return a hiding version of self.email
 
     email = User(Page.owner).email.replace("@", " at ")
@@ -109,7 +112,9 @@ class BlogDetailPage(Page):
         FieldPanel("date"),
         FieldPanel("intro"),
         ImageChooserPanel("image"),
-        VideoChooserPanel("video"),
+        StreamFieldPanel('videos_here'),
+        # FieldPanel('video'),
+        # VideoChooserPanel("video"),
         FieldPanel("body", classname="full"),
         # MapFieldPanel("address", latlng=True, zoom=4),
         StreamFieldPanel("links"),

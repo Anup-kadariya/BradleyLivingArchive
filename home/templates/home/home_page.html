@@ -292,24 +292,26 @@
                                 <img class="img-fluid" src="{{ blog_img.url }}" alt="{{ blog_img.alt }}">
                             </a>
                             <!-- getting uploaded videos -->
-                            {% load wagtailvideos_tags %}
-                            <div class="video-container">
-                                {% if post.video %}
-                                    <a href="{{ post.url }}">
-                                        <video class="img-fluid" width="100%" height="auto" controls>
-                                            <source src="{{ post.video.url }}" type="video/mp4"> 
-                                        </video>                      
-                                    </a>
-                                {% else %}
-                                    {% for block in post.body %}
-                                        {% if block.block_type == 'video_embeded' %}
-                                            <a href="{{ post.url }}">
-                                                {{ block.value.video_embed.html }}
-                                            </a>
+                            {% load wagtailcore_tags %}
+                            
+
+                            {% for video_block in post.videos_here|slice:":1" %}
+                            {% if video_block.block_type == 'upload_video' %}
+                                <a href="{{ post.url }}">
+                                    <video class="img-fluid" width="100%" height="auto" controls>
+                                        <source src="{{ video_block.value.url }}" type="video/mp4"> 
+                                    </video>                      
+                                </a>
+                            {% else %}
+                                <div class="video-container">
+                                    {% for embed_block in post.videos_here %}
+                                        {% if embed_block.block_type == 'embed_video' %}
+                                            {{ embed_block.value.video_embed.html }}
                                         {% endif %}
                                     {% endfor %}
-                                {% endif %}
-                            </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
                             <div class="body"></div>
                         </div>
                     </div>

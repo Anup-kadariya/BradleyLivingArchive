@@ -6,7 +6,7 @@
 <html lang="en">
 
 
-<style>
+<!-- <style>
 .video-container {
     position: relative;
     max-width: 500px; /* Adjust the maximum width as needed */
@@ -26,7 +26,7 @@
     height: 100%;
 }
 
-</style>
+</style> -->
 {% block content %}
     <head>
         <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
@@ -96,40 +96,40 @@
 
     <br>
     <br>
-    {% if self.video %}
-    {% load wagtailvideos_tags %}
 
-    <a href="{{ post.url }}">
-        <video class="img-fluid" width="500" height="200" controls>
-          <source src="{{self.video.url}}" type="video/mp4"> 
-        </video>
-    </div>
-    </a>
-    {% endif %}
-    {% if self.body %}
-    <div class="text-center">
-        <br>
-        {% for block in self.body %}
-        {% if block.block_type == 'paragraph' %}
-        {{ block.value }}
-        {% endif %}  
-        {% endfor %}
-        <br>
-        {% for block in self.body %}
-            {% if block.block_type == 'video_embeded' %}
-            <div class="container" style="text-align: center;">
-            <div class="video-container">
-                    {{ block.value.video_embed.html }}
-                    </div>
-                    </div>
+
+  
+
+    {% load wagtailcore_tags %}
+   
+
+
+    {% for block in self.videos_here %}
+            {% if block.block_type == 'upload_video' %}
+                    <a href="{{ post.url }}">
+                        <video class="img-fluid" width="500" height="200" controls>
+                            <source src="{{ block.value.url }}" type="video/mp4"> 
+                        </video>                      
+                    </a>    
             {% endif %}
-        
-        {% endfor %}
+    {% endfor %}
+            
+    {% if page.body %}
+    {{ page.body|richtext }}
+    {% endif %}
+   
 
-    </div>
-        
-    {% endif %}  
+    {% for block in self.videos_here %}
 
+        {% if block.block_type == 'embed_video' %}
+            <a href="{{ post.url }}">
+                {{ block.value.video_embed.html }}
+            </a>
+        {% endif %}
+            
+    {% endfor %}
+  
+    
 <p style="color: black; font-size: larger; width: 800px; margin: auto; text-align: left; text-transform: initial;">
     <strong>Posted by: {{ self.owner.get_full_name }}</strong>
     <span style="float: right;">
