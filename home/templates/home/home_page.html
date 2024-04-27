@@ -142,17 +142,23 @@
                         crossorigin=""></script>
                 <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"/>
                 <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB35JWbAVaroVf_foJTg2xjjbPw3EFrvlw"></script>
+
             </head>
 
             <body>
             <div id="map"></div>
+
+            
+
             <script type="text/javascript">
                 var string = ""
                 string = "{% for post in posts %}{{ post.title }}@*&!{% endfor %}";
                 var title = string.split("@*&!");
 
                 string = "{% for post in posts %}{{ post.address }}@*&!{% endfor %}";
-                var address = string.split("@*&!");
+                var addresses = string.split("@*&!");
+                console.log(addresses)
 
                 string = "{% for post in posts %}{{ post.intro }}@*&!{% endfor %}";
                 var intro = string.split("@*&!");
@@ -169,12 +175,32 @@
                 string = "{% for post in posts %}{% image post.image fill-200x150 as blog_img %}{{blog_img.url}}@*&!{% endfor %}";
                 var imgs = string.split("@*&!");
 
+                string = "{% for post in posts %}{{ post.latitude }}@*&!{% endfor %}";
+                var latitudes = string.split("@*&!");
+                console.log(latitudes, "latitude")
+
+
+                string = "{% for post in posts %}{{ post.longitude }}@*&!{% endfor %}";
+                var longitudes = string.split("@*&!");
+                console.log(longitudes, "longitude")
+
+
+                var coordinates = [];
+
+                for (var i = 0; i < latitudes.length; i++) {
+                    var coordinate = latitudes[i] + ', ' + longitudes[i];
+                    coordinates.push(coordinate);
+                }
+
+                console.log(coordinates)
+
                 var blogSet = {}
                 for (let i = 0; i < uids.length; i++) {
+
                     const uid = uids[i]
                     if (uid === '') continue
                     if (typeof (blogSet[uid]) === 'undefined') blogSet[uid] = []
-                    blogSet[uid].push([title[i], address[i], i, intro[i], body[i], url[i], imgs[i], uid])
+                    blogSet[uid].push([title[i], coordinates[i], i, intro[i], body[i], url[i], imgs[i], uid])
                 }
 
                 var map = L.map('map', {attributionControl: false}).setView([-24.3000384, 140.0782539], 4);
@@ -245,6 +271,8 @@
                 }
 
                 map.addLayer(myMarkerClusterGroup)
+
+                
             </script>
             </body>
         </div>
