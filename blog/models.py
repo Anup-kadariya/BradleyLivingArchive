@@ -21,6 +21,8 @@ from wagtailgeowidget.panels import GeoAddressPanel, GoogleMapsPanel
 from wagtailgeowidget import geocoders
 from wagtailgeowidget.panels import GoogleMapsPanel
 from wagtailvideos.blocks import VideoChooserBlock
+from wagtailgeowidget.helpers import geosgeometry_str_to_struct
+from django.utils.functional import cached_property
 
 keys=load_dotenv("./livingarchive/settings/.env")
 api_key=str(os.getenv("API_KEY"))
@@ -155,3 +157,16 @@ class BlogDetailPage(Page):
         return self.get_view_restrictions().filter(restriction_type="password").first()
     def is_private(self):
         return self.view_restrictions.exists()
+    
+
+    @cached_property
+    def point(self):
+        return geosgeometry_str_to_struct(self.location)
+
+    @property
+    def latitude(self):
+        return self.point['y']
+
+    @property
+    def longitude(self):
+        return self.point['x']
