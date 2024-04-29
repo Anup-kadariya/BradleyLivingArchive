@@ -91,21 +91,24 @@
     </p>
     <br>
     <br>
-    <div class="text-center" >
+    <div class="text-center">
 
         {% if self.title %}
-        <strong>{{ self.intro }}</strong>
+        <div style="color: black; font-size: larger; width:800px; margin: auto;  text-align: justify;">
+            {{ self.intro }}
+        </div>
         {% endif %}
         <br>
-
-        {% if page.body %}
-        <p style="color: black; width: 800px; margin: auto; text-align: center; text-transform: initial;">
-        {{ page.body|richtext }}
-    </p>
-        {% endif %}
-        <br>
-
         
+        {% if page.body %}
+        <div style="color: black; font-size: larger; width:800px; margin: auto;  text-align: justify;">
+            {{ page.body|richtext }}
+        </div>
+        {% endif %}
+        <br>
+
+
+        <!-- Code to show embeded video -->
         {% load wagtailcore_tags %}
 
         {% for block in self.videos_here %}
@@ -116,8 +119,8 @@
         {% endif %}
         {% endfor %}
 
-
-        {% for block in self.videos_here %}
+        <!-- Code to show uploaded video -->
+        <!-- {% for block in self.videos_here %}
         {% if block.block_type == 'upload_video' %}
         <a href="{{ post.url }}">
             <video class="img-fluid" width="500" height="200" controls>
@@ -125,14 +128,13 @@
             </video>
         </a>
         {% endif %}
-        {% endfor %}
-
+        {% endfor %} -->
 
         <p
             style="color: black; font-size: larger; width: 800px; margin: auto; text-align: left; text-transform: initial;">
             <strong>Posted by: {{ self.owner.get_full_name }}</strong>
             <span style="float: right;">
-                <strong>{{ self.date }}</strong>
+                {{ self.date }}
             </span>
         </p>
         <p
